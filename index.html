@@ -1,0 +1,93 @@
+<!-- ideology:
+ 1. skeleton with html
+ 2. use javascript n output flexbox grid of 16x16 square divs
+ 3. use a "container" div for all the other divs, this div can be in the html file
+ 4. link ur css style sheet!!!
+ 5. DOM TIME!!! - set up hover on the grid using "mouse-enter" mouse event. the divs should change color
+ 5a. There are multiple ways to change the color of the divs, including:
+        Adding a new class to the div.
+        Changing the div’s background color using JavaScript.
+ 6. TBC...
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>
+            ETCH-A-SKETCH!
+        </title>
+    </head>
+    <body>
+        <div class="textNbutton">
+        <h1>Etch-a-Sketch</h1>
+        <button>Reset</button>
+        </div>
+        <div class="container">
+            <div class="items">
+            </div>
+
+        </div>
+    </body>
+    <script>
+     let boxes = [];
+
+     const flexContainer = document.querySelector(".container");
+     document.body.appendChild(flexContainer);
+     const containerSize = 600;
+
+
+     const onMouseOver = (event) => {
+        const box = event.target;
+        const randomColor = `rgb(${Math.floor(Math.random() * 256)},
+                           ${Math.floor(Math.random() * 256)},
+                           ${Math.floor(Math.random() * 256)}`;
+            if (box.style.backgroundColor !== randomColor) {
+            box.style.backgroundColor = randomColor;
+            }
+        }
+      
+
+     
+     const createBoxes = (boxCount) => {
+        while (flexContainer.firstChild) {
+            flexContainer.removeChild(flexContainer.firstChild)
+        }
+      const boxSize = containerSize / boxCount;
+
+      for (i = 1; i <= boxCount * boxCount; i++) {
+      let box = document.createElement("div");
+      box.classList.add("items");
+      box.style.width = `${boxSize}px`;
+      box.style.height = `${boxSize}px`;
+      box.style.aspectRatio = 16 / 16;
+      box.style.backgroundColor = "black";
+
+      box.addEventListener('mouseover', onMouseOver)
+      flexContainer.appendChild(box);
+      boxes.push(box)
+      
+      }
+     }
+
+      createBoxes(4);
+
+      const resetButton = document.querySelector("button");
+      resetButton.addEventListener('click', () => {
+        let userInput = prompt ('Enter the number of squares per side for the new grid');
+        userInput = parseInt(userInput);
+      
+        if (userInput > 0 && userInput <= 100) {
+        for (i = 1; i <= userInput * userInput; i++) {
+            createBoxes(userInput);
+        }
+      }})
+      
+
+     
+
+
+
+    </script>
+ </html>
