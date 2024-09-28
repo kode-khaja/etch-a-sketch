@@ -1,0 +1,118 @@
+body{
+    width: 100%;
+    display: flex;
+   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.textNbutton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button{
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 100px;
+    height: 32px;
+}
+
+
+
+.container{
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 600px;
+    max-height: 600px;
+    margin-top: 20px;
+    padding: 0%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container.items{
+    display: flex;
+   
+}
+
+
+
+    
+/* const flexContainer = document.querySelector(".container");
+document.body.appendChild(flexContainer);
+
+
+
+let boxes = [];
+
+const onMouseOver = (event) => {
+    const box = event.target;
+    if (box.style.backgroundColor !== 'yellow') {
+        box.style.backgroundColor = 'yellow';
+}
+}
+const containerSize = 600;
+
+const createBoxes = (boxCount) => {
+    while (flexContainer.firstChild) {
+    flexContainer.removeChild(flexContainer.firstChild);
+}
+
+const boxSize = containerSize / boxCount;
+for (let i = 1; i <= boxCount * boxCount; i++) {
+let box = document.createElement("div")
+box.classList.add("items");
+box.style.width = `${boxSize}px`;
+box.style.height = `${boxSize}px`;
+box.style.aspectRatio = "16 / 16";
+box.style.backgroundColor = "black";
+
+flexContainer.appendChild(box);
+boxes.push(box);
+box.addEventListener('mouseover', onMouseOver);
+}
+}
+
+createBoxes(4);
+
+
+
+const resetButton = document.querySelector("button");
+
+resetButton.addEventListener('click', () => {
+    let userInput = prompt ('Enter the number of squares per side for the new grid')
+    userInput = parseInt(userInput)
+    while(flexContainer.firstChild) {
+        flexContainer.removeChild(flexContainer.firstChild)
+    }
+    const containerSize = 600;
+if (userInput > 0 && userInput <= 100) {
+   const boxSize = containerSize / userInput;
+
+
+for (let i = 1; i <= userInput * userInput; i++) {
+let box = document.createElement("div")
+box.classList.add("items");
+box.style.width = `${boxSize}px`;
+box.style.height = `${boxSize}px`;
+box.style.aspectRatio = "16 / 16";
+box.style.backgroundColor = "black";
+flexContainer.appendChild(box)
+boxes.push(box);
+box.addEventListener('mouseover', onMouseOver);
+
+    }
+
+    }
+console.log(userInput)})
+
+ */
